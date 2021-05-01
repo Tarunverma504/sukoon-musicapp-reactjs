@@ -1,0 +1,12 @@
+body{
+  background-color: black;
+}
+
+.navbar-toggler{
+  background-color: white;
+}
+
+.nav-item{
+  justify-content: space-around;
+}
+
