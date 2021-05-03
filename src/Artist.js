@@ -7,8 +7,8 @@ var arr=[];
 export default function Artist(props){
     for (var i=0;i<8;i++)
     {
-        arr.push(<div className="col-sm-3 justify-content-between ">
-        <img className="rounded-circle resizeimg" src={props.src} width={150} height={150}/>
+        arr.push(<div className=" col justify-content-between ">
+        <img className="rounded-circle resizeimg " src={props.src} width={150} height={150}/>
         <br/>
         <p className="px-2 ml-4" style={{color:'white'}}>Honeypreet</p>
     </div>)
@@ -21,7 +21,7 @@ export default function Artist(props){
         <div className=" .container-fluid">
             <div className="container ">
                 <h2 style={{color:'white'}}>Artists</h2>
-                <div className="row mt-4  text-align-center ">
+                <div className="row row-cols-md-4 mt-4  text-align-center ">
                 {arr}          
                 </div>
             </div>

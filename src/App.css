@@ -16,7 +16,6 @@ body{
 background: -webkit-linear-gradient(to right, #021B79, #0575E6);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #021B79, #0575E6);
 }
-
 .navbar{
   background: -webkit-linear-gradient(to right, #021B79, #0575E6);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #021B79, #0575E6);
@@ -44,14 +43,37 @@ background: linear-gradient(to right, #021B79, #0575E6);
   width:50%;
   height:100%;
 }
+.taglineText{
+  text-align:center;
+  margin-top:10%;
+  padding:0 20% 0 20%;
+  font-size: 5vw;
+  
+}
 
-
+.tagline_div{
+  height:50vh;
+  overflow:hidden;
+}
+ 
 @media screen and (max-width: 760px) {
-  img{
+  .resize{
     visibility: hidden;
   }
   .tagline{
     float:center;
     width:100%;
+  }
+  .taglineText
+  {
+    font-size:3rem;
+  }
+  .tagline_div{
+    height: 80vh;
+    margin-top:20%;
+  }
+  .resizeimg{
+    width:120px;
+    height:120px;
   }
 }
