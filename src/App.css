@@ -4,7 +4,12 @@
   margin-top:0;
   margin-bottom:0;
 }
-
+.heading
+{
+  font-family: 'Jomhuria', cursive;
+  font-weight:bold;
+  font-size:7vw;
+}
 body{
   background-color:#0f0e0ef5;
   overflow-x:hidden;
@@ -42,13 +47,14 @@ background: linear-gradient(to right, #021B79, #0575E6);
   float:right;
   width:50%;
   height:100%;
+ 
 }
 .taglineText{
   text-align:center;
   margin-top:10%;
   padding:0 20% 0 20%;
-  font-size: 5vw;
-  
+  font-size: 4vw;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .tagline_div{
@@ -75,5 +81,9 @@ background: linear-gradient(to right, #021B79, #0575E6);
   .resizeimg{
     width:120px;
     height:120px;
+  }
+  .heading
+  {
+    font-size:7vw;
   }
 }

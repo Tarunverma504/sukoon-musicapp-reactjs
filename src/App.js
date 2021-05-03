@@ -10,7 +10,7 @@ export default function App(){
   return(
     <>
        <nav className="navbar  navbar-inverse navbar-expand-md" style={{background: "-webkit-linear-gradient(to right, #021B79, #0575E6)", width:"100%"} } >
-      <a className="navbar-brand navbarTextColor fixed-link navcolor nav-link" ><h1>Sukoon</h1></a>
+      <a className="navbar-brand navbarTextColor fixed-link navcolor nav-link" ><h1 className="heading">SUKOON</h1></a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span  > <i className="fas fa-bars"></i> </span>
       </button>
