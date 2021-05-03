@@ -2,12 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import "./App.css";
-import "../node_modules/jquery/dist/jquery.min.js";
-import "../node_modules/bootstrap/js/src/collapse";
-import "../node_modules/bootstrap/dist/css/bootstrap.css" ;
-
+import Artist from "./Artist";
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+ <App/>
+ ,  document.getElementById('root')
 );
+
