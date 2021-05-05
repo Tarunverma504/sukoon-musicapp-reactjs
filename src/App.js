@@ -43,7 +43,7 @@ export default function App(){
         <div className=" tagline_div">
         <div className=" tagline"> <h1  className="text-light taglineText"> Just Relax <br/> And Unwind.</h1></div>
           <div className="" style={{width:"50%",height:'100%'}}> <img src={png} className="resize image-fluid" style={{marginTop:"-8vh",paddingTop:"3vh"}}/> </div>
-          
+      
         </div>
         <Artist src="https://bsmedia.business-standard.com/media-handler.php?mediaPath=https://bsmedia.business-standard.com/_media/bs/img/article/2017-08/27/full/1503854250-7786.jpg&width=1200"/>
 

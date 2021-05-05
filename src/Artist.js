@@ -13,9 +13,6 @@ export default function Artist(props){
         <p className="px-2 ml-4" style={{color:'white'}}>Honeypreet</p>
     </div>)
     }
-
-
-
     return(
         <>
         <div className=" .container-fluid">
