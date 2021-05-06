@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import Artist from "./Artist";
-import Player from "./Player";
+import App from './component/App';
+import Artist from "./component/Artist";
+import Player from "./component/Player";
+import "./style/App.css";
 ReactDOM.render(
- <Player/>
+ <App/>
  ,  document.getElementById('root')
 );
 

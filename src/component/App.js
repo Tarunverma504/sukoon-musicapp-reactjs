@@ -1,10 +1,11 @@
 import React,{Component} from 'react';
-import "../node_modules/jquery/dist/jquery.min.js";
-import "../node_modules/bootstrap/js/src/collapse";
-import "../node_modules/bootstrap/dist/css/bootstrap.css" ;
-import "./App.css";
-import Artist from "./Artist.js";
-import png from "./images/home_page_artist.png";
+import "../../node_modules/jquery/dist/jquery.min.js";
+import "../../node_modules/bootstrap/js/src/collapse";
+import "../../node_modules/bootstrap/dist/css/bootstrap.css" ;
+import "../style/App.css";
+import Artist from "./Artist";
+import png from "../images/home_page_artist.png";
+import Player from "./Player";
 export default function App(){
 
   return(
@@ -46,6 +47,8 @@ export default function App(){
       
         </div>
         <Artist src="https://bsmedia.business-standard.com/media-handler.php?mediaPath=https://bsmedia.business-standard.com/_media/bs/img/article/2017-08/27/full/1503854250-7786.jpg&width=1200"/>
+        <Player/>
+        
 
     </>
   )
