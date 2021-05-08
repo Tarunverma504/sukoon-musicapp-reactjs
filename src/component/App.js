@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React,{Component, useEffect} from 'react';
 import "../../node_modules/jquery/dist/jquery.min.js";
 import "../../node_modules/bootstrap/js/src/collapse";
 import "../../node_modules/bootstrap/dist/css/bootstrap.css" ;
@@ -6,8 +6,39 @@ import "../style/App.css";
 import Artist from "./Artist";
 import png from "../images/home_page_artist.png";
 import Player from "./Player";
+import { getParamValues,setAuthHeader} from "../utils/function";
+import _ from "lodash";
+const db = require('dotenv').config();
 export default function App(){
 
+  const {
+    REACT_APP_CLIENT_ID,
+    REACT_APP_AUTHORIZE_URL,
+    REACT_APP_REDIRECT_URL
+  } = process.env;
+  useEffect((props)=>{
+   // const { setExpiryTime, history, location } = props;
+    try {
+      if (_.isEmpty(window.location.hash)) {
+        console.log("Empty")
+      }
+      else{
+        console.log(window.location.hash);
+        const access_token = getParamValues(window.location.hash);
+          localStorage.setItem('params', JSON.stringify(access_token)); // storing token on local storage
+        const expiryTime = new Date().getTime() + access_token.expires_in * 1000;   //getting token expire time
+          localStorage.setItem('expiry_time', expiryTime);
+        console.log(expiryTime);
+
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  })
+
+  const handleLogin = () => {
+     window.location = `${REACT_APP_AUTHORIZE_URL}?client_id=${REACT_APP_CLIENT_ID}&redirect_uri=${REACT_APP_REDIRECT_URL}&response_type=token&show_dialog=true`;
+  };
   return(
     <>
        <nav className="navbar  navbar-inverse navbar-expand-md" style={{background: "-webkit-linear-gradient(to right, #021B79, #0575E6)", width:"100%"} } >
@@ -29,6 +60,9 @@ export default function App(){
                 <a href="#" className="nav-link navcolor ">Contact US</a>
               </li>
         </ul>
+        <button variant="info" type="submit" onClick={handleLogin}>
+  Login to spotify
+</button>
       </div>
       </nav>
       <div>
