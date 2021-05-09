@@ -13,6 +13,7 @@
     "bootstrap": "^4.6.0",
     "dotenv": "^9.0.0",
     "jquery": "^3.6.0",
+    "json-parse": "^1.0.3",
     "lodash": "^4.17.19",
     "nodemon": "^2.0.7",
     "react": "^17.0.2",

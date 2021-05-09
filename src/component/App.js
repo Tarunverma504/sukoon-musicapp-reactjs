@@ -1,4 +1,4 @@
-import React,{Component, useEffect} from 'react';
+import React,{Component,useState, useEffect} from 'react';
 import "../../node_modules/jquery/dist/jquery.min.js";
 import "../../node_modules/bootstrap/js/src/collapse";
 import "../../node_modules/bootstrap/dist/css/bootstrap.css" ;
@@ -8,16 +8,17 @@ import png from "../images/home_page_artist.png";
 import Player from "./Player";
 import { getParamValues,setAuthHeader} from "../utils/function";
 import _ from "lodash";
+import {get} from "../utils/api";
 const db = require('dotenv').config();
+var parse = require('json-parse')
 export default function App(){
-
+  var a=0;
   const {
     REACT_APP_CLIENT_ID,
     REACT_APP_AUTHORIZE_URL,
     REACT_APP_REDIRECT_URL
   } = process.env;
   useEffect((props)=>{
-   // const { setExpiryTime, history, location } = props;
     try {
       if (_.isEmpty(window.location.hash)) {
         console.log("Empty")
@@ -26,18 +27,25 @@ export default function App(){
         console.log(window.location.hash);
         const access_token = getParamValues(window.location.hash);
           localStorage.setItem('params', JSON.stringify(access_token)); // storing token on local storage
-        const expiryTime = new Date().getTime() + access_token.expires_in * 1000;   //getting token expire time
+        const expiryTime = new Date().getTime()+ access_token.expires_in * 1000;   //getting token expire time
           localStorage.setItem('expiry_time', expiryTime);
         console.log(expiryTime);
-
+        //callingApi();
       }
     } catch (error) {
       console.log(error);
     }
   })
+  // async function callingApi() {
+  //    //var getdata= await get("https://api.spotify.com/v1/artists/4YRxDV8wJFPHPTeXepOstw/related-artists");
+  //   //  setResult(getdata.data);
+  //   // console.log(getdata.data.artists[0].external_urls.spotify+"dm, m,c c vcv");
+  //   console.log(a++);
+  // }
 
   const handleLogin = () => {
      window.location = `${REACT_APP_AUTHORIZE_URL}?client_id=${REACT_APP_CLIENT_ID}&redirect_uri=${REACT_APP_REDIRECT_URL}&response_type=token&show_dialog=true`;
+     
   };
   return(
     <>
@@ -80,7 +88,7 @@ export default function App(){
           <div className="" style={{width:"50%",height:'100%'}}> <img src={png} className="resize image-fluid" style={{marginTop:"-8vh",paddingTop:"3vh"}}/> </div>
       
         </div>
-        <Artist src="https://bsmedia.business-standard.com/media-handler.php?mediaPath=https://bsmedia.business-standard.com/_media/bs/img/article/2017-08/27/full/1503854250-7786.jpg&width=1200"/>
+         <Artist />
         <Player/>
         
 

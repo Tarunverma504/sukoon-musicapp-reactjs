@@ -1,5 +1,6 @@
 .resizeimg{
     object-fit: cover;
+    align-items: center;
 }
 
 .container-fluid{
