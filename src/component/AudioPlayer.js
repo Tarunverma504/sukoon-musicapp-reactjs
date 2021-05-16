@@ -15,7 +15,7 @@ export default function AudioPlayer(){
     const [currentTime, setCurrentTime] = useState(0);
     const fmtMSS = (s) => { return (s - (s %= 60)) / 60 + (9 < s ? ':' : ':0') + ~~(s) }
     const [PlayPause, setPlayPause] = useState('fas fa-play-circle');
-    const [song,setSong] = useState(song2)
+    const [song,setSong] = useState("https://open.spotify.com/track/57jOEZtoLQK4zF2x55bdkp");
     const audioPlayer = useRef()
     const handleVolume =(q)=>{
         setStateVolum(q);
