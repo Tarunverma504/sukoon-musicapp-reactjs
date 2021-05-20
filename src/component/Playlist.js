@@ -1,15 +1,19 @@
 import React,{Component,useEffect,useState} from 'react';
 import {get} from "../utils/api";
 import "../../node_modules/jquery/dist/jquery.min.js";
-import _ from "lodash";
+import _, { cond } from "lodash";
 import "../../node_modules/bootstrap/js/src/collapse";
 import "../../node_modules/bootstrap/dist/css/bootstrap.css" ;
 import "../style/Playlist.css";
-export default function Playlist(){
-    useEffect(()=>{
-        abc();
-    },[])
-    var  background=[{old: "#0F2027",crome:"-webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027)",firefox:"linear-gradient(to right, #2C5364, #203A43, #0F2027)"},
+import List from "../component/List"
+let tracks=[];
+let arr=[];
+export default class Playlist extends Component{
+    
+    constructor(props){
+        super(props);
+        
+        let  background=[{old: "#0F2027",crome:"-webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027)",firefox:"linear-gradient(to right, #2C5364, #203A43, #0F2027)"},
                          {old: "#0f0c29",crome:"-webkit-linear-gradient(to right, #0f0c29, #302b63, #24243e)",firefox:"linear-gradient(to right, #0f0c29, #302b63, #24243e)"},
                          {old: "#870000",crome:"-webkit-linear-gradient(to right, #870000, #190a05)",firefox:"linear-gradient(to right, #870000, #190a05)"},
                          {old: " #c31432",crome:"-webkit-linear-gradient(to right, #c31432, #240b36)",firefox:"linear-gradient(to right, #c31432, #240b36)"},
@@ -18,101 +22,117 @@ export default function Playlist(){
         let a=Math.floor(Math.random() * background.length);
         let id=window.location.pathname;
         id=id.split("/");
-        const [Id,setId]=useState(id[2]);
-        const [img,setImg]=useState(`https://i.scdn.co/image/${id[3]}`);
-        const [name,setName]=useState(id[4]);
-        const [background_old,setbackground_old]=useState(background[a].old);
-        const [background_crome,setbackground_crome]=useState(background[a].crome);
-        const [background_firefox,setbackground_firefox]=useState(background[a].firefox);
-        const [data,setData]=useState();
-        const abc=async ()=>{
-            console.log("mnc xmc");
-             let getdata= await get(`https://api.spotify.com/v1/artists/${Id}/top-tracks?market=IN`);
-             console.log(getdata.data.tracks[0]);
+        this.state=({
+            id:id[2],
+            img:`https://i.scdn.co/image/${id[3]}`,
+            name:decodeURI(id[4]),
+            background_old:background[a].old,
+            background_crome:background[a].crome,
+            background_firefox:background[a].firefox,
+            track_length:"0"
+        })
+        this.abc();
+    }
+
+    
+   async abc(){
+        let getdata= await get(`https://api.spotify.com/v1/artists/${this.state.id}/top-tracks?market=IN`);
+        tracks=[];
+        for(let i=0;i<getdata.data.tracks.length;i++){
+            tracks.push(getdata.data.tracks[i]);
         }
+        this.setState({track_length:tracks.length})
+    }
+    msToTime(duration) {
+        var milliseconds = parseInt((duration % 1000) / 100),
+          seconds = Math.floor((duration / 1000) % 60),
+          minutes = Math.floor((duration / (1000 * 60)) % 60),
+          hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+      
+        hours = (hours < 10) ? "0" + hours : hours;
+        minutes = (minutes < 10) ? "0" + minutes : minutes;
+        seconds = (seconds < 10) ? "0" + seconds : seconds;
+      
+        return  minutes + ":" + seconds ;
+      }
+    name(str){
+         if(str.indexOf("(From")== -1){return str}
+         else{
+             return (str.slice(0,str.indexOf("(From")));
+         }
+    }
+    des(str){
+        if(str.indexOf("(From")== -1){return " "}
+        else{
+            return (str.slice(str.indexOf("(From"),str.length));
+        }
+   }
+
+   
+      renderList(){
+       arr=[];
+       console.log(tracks[0]); //https://api.spotify.com/v1/artists/${this.state.id}/top-tracks?market=IN;
+       let gettrack=  get(`https://api.spotify.com/v1/${this.state.id}/tracks/1MhHomaXgrPMBroXkpWSSa`);
+       console.log(gettrack);
+       for(var i=0;i<tracks.length;i++){
+        let duration= this.msToTime(tracks[i].duration_ms);
+        let name=this.name(tracks[i].name);
+        let des=this.des(tracks[i].name);
+      
+           arr.push(
+               <List image={tracks[i].album.images[2].url} duration={duration} name={name} des={des}/>
+           )
+       }
+       return arr;
+                
+    }
+    
+    render(){
+       
         return(
-            <div className="Playlist_div" style={{background:background_crome,background:background_firefox,background_crome:background_old}}>
-             <div className="header_div">
-                <div className="image_div">
-                    <img src={`${img}`} className="artist_img"/>
-                </div>
-                <div className="name-div">
-                    <h1>Tarun Verma</h1>
-                    <p className="text-center">Total Tracks:- 10</p>
-                </div>
+            <div className="Playlist_div" style={{background:this.state.background_crome,background:this.state.background_firefox,background_crome:this.state.background_old}}>
+                <div className="header_div">
+                    <div className="image_div">
+                        <img src={`${this.state.img}`} className="artist_img"/>
+                    </div>
+                    <div className="name-div">
+                        <h1>{this.state.name}</h1>
+                        <p className="text-center">Total Tracks:-{this.state.track_length}</p>
+                    </div>
                 
                 </div>
-             <hr style={{background:"white",marginTop:"0px"}}/>
-             <div className="list_div">
+                <hr style={{background:"white",marginTop:"0px"}}/>
+                <div className="list_div">
                 <table className="style_table">
                     <thead>
-                        <th></th>
-                        <th>TITTLE</th>
-                        <th className="hide">RELEASE DATE</th>
-                        <th><i class="far fa-clock"></i></th>
+                        <tr>
+                            <th></th>
+                            <th>TITTLE</th>
+                            <th className="hide">RELEASE DATE</th>
+                            <th><i className="far fa-clock"></i></th>
+                        </tr>
                     </thead>
-                    <tr>
-                        <td style={{width:"20px"}} ><img src={`${img}`} width={"50px"} height={"45px"}  /></td>
-                        <td>Tu Hi Yaar Mera</td>
-                        <td className="hide">2019-12-02</td>
-                        <td>5:00</td>
-                    </tr>
-                    <tr>
-                        <td style={{width:"20px"}} ><img src={`${img}`} width={"50px"} height={"45px"} /></td>
-                        <td>Tu Hi Yaar Mera</td>
-                        <td className="hide">2019-12-02</td>
-                        <td>5:00</td>
-                    </tr>
-                    <tr>
-                        <td style={{width:"20px"}} ><img src={`${img}`} width={"50px"} height={"45px"} /></td>
-                        <td>Tu Hi Yaar Mera</td>
-                        <td className="hide">2019-12-02</td>
-                        <td>5:00</td>
-                    </tr>
-                    <tr>
-                        <td style={{width:"20px"}} ><img src={`${img}`} width={"50px"} height={"45px"} /></td>
-                        <td>Tu Hi Yaar Mera</td>
-                        <td className="hide">2019-12-02</td>
-                        <td>5:00</td>
-                    </tr>
-                    <tr>
-                        <td style={{width:"20px"}} ><img src={`${img}`} width={"50px"} height={"45px"} /></td>
-                        <td>Tu Hi Yaar Mera</td>
-                        <td className="hide">2019-12-02</td>
-                        <td>5:00</td>
-                    </tr>
-                    <tr>
-                        <td style={{width:"20px"}} ><img src={`${img}`} width={"50px"} height={"45px"} /></td>
-                        <td>Tu Hi Yaar Mera</td>
-                        <td className="hide">2019-12-02</td>
-                        <td>5:00</td>
-                    </tr>
-                    <tr>
-                        <td style={{width:"20px"}} ><img src={`${img}`} width={"50px"} height={"45px"} /></td>
-                        <td>Tu Hi Yaar Mera</td>
-                        <td className="hide">2019-12-02</td>
-                        <td>5:00</td>
-                    </tr>
-                    <tr>
-                        <td style={{width:"20px"}} ><img src={`${img}`} width={"50px"} height={"45px"} /></td>
-                        <td>Tu Hi Yaar Mera</td>
-                        <td className="hide">2019-12-02</td>
-                        <td>5:00</td>
-                    </tr>
-                    <tr>
-                        <td style={{width:"20px"}} ><img src={`${img}`} width={"50px"} height={"45px"} /></td>
-                        <td>Tu Hi Yaar Mera</td>
-                        <td className="hide">2019-12-02</td>
-                        <td>5:00</td>
-                    </tr>
-                    <tr>
-                        <td style={{width:"20px"}} ><img src={`${img}`} width={"50px"} height={"45px"} /></td>
-                        <td>Tu Hi Yaar Mera</td>
-                        <td className="hide">2019-12-02</td>
-                        <td>5:00</td>
-                    </tr>
+                    {this.renderList()}
                 </table>
-             </div>
+                </div>
+                 
             </div>   
         )
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

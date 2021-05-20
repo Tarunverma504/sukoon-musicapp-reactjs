@@ -13,7 +13,6 @@ export default class Artist extends React.Component{
     constructor(){
         super();
         this.callingApi();
-        // const [arr,setArr]=useState([]);
         this.state=({
             arr:[],
         })
@@ -28,7 +27,7 @@ export default class Artist extends React.Component{
             brr.push(
             <Link to={`/ArtistPlaylist/${getdata.data.artists[i].id}/${img_id[4]}/${getdata.data.artists[i].name}`}>
                 <div className=" col  "  key={getdata.data.artists[i].id}>
-                    <img className="rounded-circle resizeimg  " src={getdata.data.artists[i].images[2].url} width={getdata.data.artists[i].images[2].width}  height={getdata.data.artists[i].images[2].height}/>
+                    <img className="rounded-circle resizeimg  " src={getdata.data.artists[i].images[2].url} width={getdata.data.artists[i].images[2].width}  height={getdata.data.artists[i].images[2].height} key={getdata.data.artists[i].id}/>
                     <br/>
                     <div >
                     <p className="px-2 ml-4" style={{color:'white'}}>{getdata.data.artists[i].name}</p>
@@ -36,8 +35,6 @@ export default class Artist extends React.Component{
                 </div>
             </Link>)
         }
-        console.log("ssmn s");
-        console.log(this.state.arr);
         this.setState({arr:brr});
 
         } 
