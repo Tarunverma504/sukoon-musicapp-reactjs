@@ -9,7 +9,7 @@ export default function Player(props){
         <>
             <div className="fixed-bottom   player_div">
             <div className="container-fluid audio_conatiner">
-             <AudioPlayer /> 
+             <AudioPlayer index={props.index} artist={props.artist} tracks={props.tracks} /> 
             </div>
             </div>
         </>

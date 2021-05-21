@@ -43,49 +43,9 @@ export default class Playlist extends Component{
         }
         this.setState({track_length:tracks.length})
     }
-    msToTime(duration) {
-        var milliseconds = parseInt((duration % 1000) / 100),
-          seconds = Math.floor((duration / 1000) % 60),
-          minutes = Math.floor((duration / (1000 * 60)) % 60),
-          hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
-      
-        hours = (hours < 10) ? "0" + hours : hours;
-        minutes = (minutes < 10) ? "0" + minutes : minutes;
-        seconds = (seconds < 10) ? "0" + seconds : seconds;
-      
-        return  minutes + ":" + seconds ;
-      }
-    name(str){
-         if(str.indexOf("(From")== -1){return str}
-         else{
-             return (str.slice(0,str.indexOf("(From")));
-         }
-    }
-    des(str){
-        if(str.indexOf("(From")== -1){return " "}
-        else{
-            return (str.slice(str.indexOf("(From"),str.length));
-        }
-   }
-
-   
-      renderList(){
-       arr=[];
-       console.log(tracks[0]); //https://api.spotify.com/v1/artists/${this.state.id}/top-tracks?market=IN;
-       let gettrack=  get(`https://api.spotify.com/v1/${this.state.id}/tracks/1MhHomaXgrPMBroXkpWSSa`);
-       console.log(gettrack);
-       for(var i=0;i<tracks.length;i++){
-        let duration= this.msToTime(tracks[i].duration_ms);
-        let name=this.name(tracks[i].name);
-        let des=this.des(tracks[i].name);
-      
-           arr.push(
-               <List image={tracks[i].album.images[2].url} duration={duration} name={name} des={des}/>
-           )
-       }
-       return arr;
-                
-    }
+    
+    
+    
     
     render(){
        
@@ -97,7 +57,7 @@ export default class Playlist extends Component{
                     </div>
                     <div className="name-div">
                         <h1>{this.state.name}</h1>
-                        <p className="text-center">Total Tracks:-{this.state.track_length}</p>
+                        <p className="text-center">Total Tracks:-  {this.state.track_length}</p>
                     </div>
                 
                 </div>
@@ -112,7 +72,7 @@ export default class Playlist extends Component{
                             <th><i className="far fa-clock"></i></th>
                         </tr>
                     </thead>
-                    {this.renderList()}
+                    <List tracks={tracks} artist={this.state.name} />
                 </table>
                 </div>
                  
