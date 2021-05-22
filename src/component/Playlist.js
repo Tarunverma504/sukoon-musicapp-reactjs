@@ -67,7 +67,7 @@ export default class Playlist extends Component{
                     <thead>
                         <tr>
                             <th></th>
-                            <th>TITTLE</th>
+                            <th>TITLE</th>
                             <th className="hide">RELEASE DATE</th>
                             <th><i className="far fa-clock"></i></th>
                         </tr>
