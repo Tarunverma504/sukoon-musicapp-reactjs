@@ -1,13 +1,11 @@
-import React,{Component,useEffect,useState} from 'react';
+import React,{Component} from 'react';
 import {get} from "../utils/api";
 import "../../node_modules/jquery/dist/jquery.min.js";
-import _, { cond } from "lodash";
 import "../../node_modules/bootstrap/js/src/collapse";
 import "../../node_modules/bootstrap/dist/css/bootstrap.css" ;
 import "../style/Playlist.css";
 import List from "../component/List"
 let tracks=[];
-let arr=[];
 export default class Playlist extends Component{
     
     constructor(props){

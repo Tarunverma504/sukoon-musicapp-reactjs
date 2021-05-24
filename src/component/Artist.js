@@ -25,8 +25,8 @@ export default class Artist extends React.Component{
             var img_id=getdata.data.artists[i].images[2].url;
             img_id=img_id.split("/");
             brr.push(
-            <Link to={`/ArtistPlaylist/${getdata.data.artists[i].id}/${img_id[4]}/${getdata.data.artists[i].name}`}>
-                <div className=" col  "  key={getdata.data.artists[i].id}>
+            <Link to={`/ArtistPlaylist/${getdata.data.artists[i].id}/${img_id[4]}/${getdata.data.artists[i].name}`} className=" col  ">
+                <div   key={getdata.data.artists[i].id}>
                     <img className="rounded-circle resizeimg  " src={getdata.data.artists[i].images[2].url} width={getdata.data.artists[i].images[2].width}  height={getdata.data.artists[i].images[2].height} key={getdata.data.artists[i].id}/>
                     <br/>
                     <div >

@@ -1,4 +1,4 @@
-import React ,{setState}from "react";
+import React from "react";
 import Player from "./Player";
 let arr=[];
 export default class List extends React.Component{

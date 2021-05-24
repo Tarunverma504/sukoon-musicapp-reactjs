@@ -4,8 +4,6 @@ import Artist from "./Artist"
 export default class AllArtist extends React.Component{
     constructor(){
         super();
-        var a=localStorage.getItem('params');
-        a=JSON.parse(a);
         this.test();
     }
     async test() {

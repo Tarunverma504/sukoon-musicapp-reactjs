@@ -1,16 +1,12 @@
-import React,{Component,useState, useEffect} from 'react';
+import React,{Component} from 'react';
 import Artist from "./Artist";
 import "../../node_modules/jquery/dist/jquery.min.js";
 import "../../node_modules/bootstrap/js/src/collapse";
 import "../../node_modules/bootstrap/dist/css/bootstrap.css" ;
 import png from "../images/home_page_artist.png";
-import { getParamValues,setAuthHeader} from "../utils/function";
+import { getParamValues} from "../utils/function";
 
 import _ from "lodash";
-import {get} from "../utils/api";
-const db = require('dotenv').config();
-
-
 export default class Home extends Component{
     constructor(){
         super();
@@ -53,14 +49,15 @@ export default class Home extends Component{
                     <div className="collapse navbar-collapse  " id="navbarNavDropdown">
                         <ul className="navbar-nav ml-auto ">
                             <li className="nav-item mr-5 ">
+                                {/* <Link to="/AllArtist"> <h2 style={{color:'white',textAlign:this.props.align}}>Artists</h2> </Link> */}
                                 <a href="#" className="nav-link navcolor ">Home</a>
                             </li>
                             <li className="nav-item mr-5">
-                                <a href="#" className="nav-link navcolor">About Us</a>
+                                <a href="/AboutUs" className="nav-link navcolor">About Us</a>
                             </li>
 
                             <li className="nav-item mr-5">
-                                <a href="#" className="nav-link navcolor ">Contact US</a>
+                                <a href="/ContactUs" className="nav-link navcolor ">Contact US</a>
                             </li>
                         </ul>
                     </div>
