@@ -1,0 +1,54 @@
+
+.aboutus{
+    background-color:#333;
+}
+.aboutus_text{
+    font-size:25px;
+    margin-top:50px;
+}
+.last_heading{
+    margin-top:90px;
+}
+.fa-heart{
+    color:red;
+    font-size:40px;
+}
+.heading{
+   color:#FF7200;
+   margin-top:80px;
+}
+@media screen and (max-width: 750px){
+    .aboutus_text{
+        margin-top:40px;
+        font-size:20px;
+    }
+    .last_heading{
+        margin-top:50px;
+    }
+    .fa-heart{
+        color:red;
+        font-size:27px;
+    }
+    .heading{
+        color:#FF7200;
+        margin-top:50px;
+     }
+}
+
+@media screen and (max-width: 750px){
+    .aboutus_text{
+        margin-top:10px;
+        font-size:20px;
+    }
+    .last_heading{
+        margin-top:50px;
+    }
+    .fa-heart{
+        color:red;
+        font-size:27px;
+    }
+    .heading{
+        color:#FF7200;
+        margin-top:20px;
+     }
+}
