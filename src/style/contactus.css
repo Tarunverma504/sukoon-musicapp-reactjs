@@ -44,7 +44,8 @@ a {
 	content: "";
 	width: 50px;
 	height: 2px;
-	background-color: #FF7200;
+	/*#FF7200 */
+	background-color: #0575E6;
 	left: 0;
 	bottom: 0;
 	left: 50%;
@@ -94,7 +95,7 @@ textarea {
 	top: 50%;
 	-webkit-transform: translateY(-50%);
 	        transform: translateY(-50%);
-	background-color: #FF7200;
+	background-color: #0575E6;
 	width: 40px;
 	height: 40px;
 	line-height: 40px;
@@ -111,7 +112,7 @@ textarea {
 	font-weight: 400;
 }
 .contact-form input[type="submit"] {
-	background-color: #FF7200;
+	background-color: #0575E6;
 	border: 0px;
 	cursor: pointer;
 	font-size: 16px;
@@ -130,14 +131,14 @@ textarea {
 }
 
 ::placeholder {
-    color: rgba(255, 255, 255, 0.685);
-    opacity: 1; /* Firefox */
+	color: red;
+	opacity: 1; /* Firefox */
   }
   
   :-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color: grey;
+   color: red;
   }
   
   ::-ms-input-placeholder { /* Microsoft Edge */
-   color: grey;
+   color: red;
   }

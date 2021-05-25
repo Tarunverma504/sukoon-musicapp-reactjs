@@ -12,8 +12,8 @@ export default class AboutUs extends React.Component{
                           So, keep supporting and showing your <i className="fas fa-heart ml-3" ></i>
                         </p>
                         <br/>
-                        <h3 className="text-center text-light">Feel free to Contact Us :-   <button   style={{backgroundColor:"#FF7200",marginLeft:"5px",borderRadius:"25px",width:"200px",height:"40px"}}> <a href="/ContactUs" style={{textDecoration:"none"}}>Contact Us</a></button></h3>
-                        <h1 className="last_heading text-center" style={{color:"#FF7200"}} > Happy Listening!</h1>
+                        <h3 className="text-center text-light">Feel free to Contact Us :-   <button   style={{backgroundColor:"#0575E6",marginLeft:"5px",borderRadius:"25px",width:"200px",height:"40px"}}> <a href="/ContactUs" style={{textDecoration:"none",color:"white"}}>Contact Us</a></button></h3>
+                        <h1 className="last_heading text-center" style={{color:"#0575E6"}} > Happy Listening!</h1>
                     </div>
                 </div>
             </>

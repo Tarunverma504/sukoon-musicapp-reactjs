@@ -96,11 +96,11 @@ export default function AudioPlayer(props){
                     onCanPlay={(e)=> setDur(e.target.duration)} /*The oncanplay event occurs when the browser can start playing the specified audio/video (when it has buffered enough to begin)*/
                          onEnded={nextsong}  // The onended event occurs when the audio/video has reached the end */
                    preload='true' /* The preload attribute allows the author to provide a hint to the browser about what he/she thinks will lead to the best user experience */
-                   src={props.tracks[index].preview_url}
+                   src={props.tracks[index].url}
                    ref={audioPlayer} />
             <div className="title_div change-color">
-                <marquee ><b>{props.tracks[index].name}</b></marquee>
-                <p className="text-center"> {props.artist} </p>
+                <marquee ><b>{props.tracks[index].track}</b></marquee>
+                <p className="text-center"> {props.tracks[index].artist} </p>
             </div>
 
             <div className="outer-control change-color">

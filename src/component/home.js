@@ -1,10 +1,13 @@
 import React,{Component} from 'react';
+import { BrowserRouter, Route, Link } from "react-router-dom";
 import Artist from "./Artist";
+import Playlists from "./Playlists";
 import "../../node_modules/jquery/dist/jquery.min.js";
 import "../../node_modules/bootstrap/js/src/collapse";
 import "../../node_modules/bootstrap/dist/css/bootstrap.css" ;
 import png from "../images/home_page_artist.png";
 import { getParamValues} from "../utils/function";
+import Footer from "./footer";
 
 import _ from "lodash";
 export default class Home extends Component{
@@ -49,8 +52,13 @@ export default class Home extends Component{
                     <div className="collapse navbar-collapse  " id="navbarNavDropdown">
                         <ul className="navbar-nav ml-auto ">
                             <li className="nav-item mr-5 ">
-                                {/* <Link to="/AllArtist"> <h2 style={{color:'white',textAlign:this.props.align}}>Artists</h2> </Link> */}
                                 <a href="#" className="nav-link navcolor ">Home</a>
+                            </li>
+                            <li className="nav-item mr-5">
+                                <Link to="/search"><i className="fas fa-search mt-3 searchicon" style={{height:"2vh"}}></i> </Link>                             
+                            </li>
+                            <li className="nav-item mr-5">
+                                <Link to="/weather"><i class="fas fa-cloud mt-3 searchicon" style={{height:"2vh"}}></i> </Link>                             
                             </li>
                             <li className="nav-item mr-5">
                                 <a href="/AboutUs" className="nav-link navcolor">About Us</a>
@@ -76,8 +84,11 @@ export default class Home extends Component{
                         <div className=" tagline"> <h1  className="text-light taglineText"> Just Relax <br/> And Unwind.</h1></div>
                         <div className="" style={{width:"50%",height:'100%'}}> <img src={png} className="resize image-fluid" style={{marginTop:"-8vh",paddingTop:"3vh"}}/> </div>
                  </div>
-
-                 <Artist number={12} align={"left"}/> 
+                 <hr style={{backgroundColor:"grey",opacity:"0.5"}}/> 
+                 <Artist number={12} align={"left"}  />
+                 <hr style={{backgroundColor:"grey",opacity:"0.5"}}/>
+                 <Playlists number={10}  />
+                 <Footer />
             </>
         )
     }

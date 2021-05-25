@@ -14,6 +14,7 @@
   height:250px;
   width:300px;
   margin-left:50px;
+  object-fit: cover;
 }
 .name-div{
   color:white;
@@ -31,7 +32,7 @@
 }
 .style_table tr{
   text-align:center;
-  border-bottom: 2px solid white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.418);
 }
 .style_table td{
   padding-top: 10px;

@@ -5,7 +5,7 @@ import "../../node_modules/bootstrap/js/src/collapse";
 import "../../node_modules/bootstrap/dist/css/bootstrap.css" ;
 import "../style/Playlist.css";
 import List from "../component/List"
-let tracks=[];
+let tracks={};
 export default class Playlist extends Component{
     
     constructor(props){
@@ -49,9 +49,10 @@ export default class Playlist extends Component{
        
         return(
             <div className="Playlist_div" style={{background:this.state.background_crome,background:this.state.background_firefox,background_crome:this.state.background_old}}>
+                <br/>
                 <div className="header_div">
                     <div className="image_div">
-                        <img src={`${this.state.img}`} className="artist_img"/>
+                        <img src={`${this.state.img}`} className="artist_img rounded"/>
                     </div>
                     <div className="name-div">
                         <h1>{this.state.name}</h1>
@@ -59,7 +60,7 @@ export default class Playlist extends Component{
                     </div>
                 
                 </div>
-                <hr style={{background:"white",marginTop:"0px"}}/>
+                <br/>
                 <div className="list_div">
                 <table className="style_table">
                     <thead>

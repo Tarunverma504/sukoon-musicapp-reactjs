@@ -45,7 +45,7 @@ export default class ContactUs extends React.Component{
                                 <div className="single-contact">
                                     <i className="fa fa-phone"></i>
                                     <h5>Phone</h5>
-                                    <p>(+1) 517 397 7100</p>
+                                    <p> (+91) 916 129 2060 </p>
                                 </div>
                                 <div className="single-contact">
                                     <i className="fa fa-envelope"></i>
@@ -61,16 +61,16 @@ export default class ContactUs extends React.Component{
                         <h1 className="text-center">Get in Touch With</h1>
                         <div className="row" style={{fontSize:"30px"}} >
                             <div className="col" >
-                                <a href="https://twitter.com/"><i className="fab fa-twitter" style={{color:"#FF7200"}}></i></a>
+                                <a href="https://twitter.com/"><i className="fab fa-twitter" style={{color:"#0575E6"}}></i></a>
                             </div>
                             <div className="col" >
-                                <a href="https://www.instagram.com/"><i className="fab fa-instagram" style={{color:"#FF7200"}}></i></a>
+                                <a href="https://www.instagram.com/"><i className="fab fa-instagram" style={{color:"#0575E6"}}></i></a>
                             </div>
                             <div className="col" >
-                                <a href="https://www.linkedin.com"><i className="fab fa-linkedin-in" style={{color:"#FF7200"}}></i></a>
+                                <a href="https://www.linkedin.com"><i className="fab fa-linkedin-in" style={{color:"#0575E6"}}></i></a>
                             </div>
                             <div className="col" >
-                                <a href="https://github.com/"><i className="fab fa-github" style={{color:"#FF7200"}}></i></a>
+                                <a href="https://github.com/Tarunverma504/sukoon-musicapp-reactjs"><i className="fab fa-github" style={{color:"#0575E6"}}></i></a>
                             </div>
                         </div>
                         

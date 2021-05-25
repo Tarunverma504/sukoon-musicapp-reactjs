@@ -6,15 +6,22 @@
 }
 
 
+.searchicon{
+  color:white;
+}
+.searchicon:hover{
+  font-size: 20px;
+}
+
 .abc{
-  background: #0575E6;  /* fallback for old browsers */
+   background: #0575E6;  /*fallback for old browsers */ 
 background: -webkit-linear-gradient(to right, #021B79, #0575E6);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #021B79, #0575E6);
+
 }
 .navbar{
   background: -webkit-linear-gradient(to right, #021B79, #0575E6);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #021B79, #0575E6);
-
 }
 .navbar-toggler{
   background-color: white;

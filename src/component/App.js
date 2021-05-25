@@ -4,6 +4,9 @@ import AllArtist from "./AllArtist";
 import Playlist from "./Playlist";
 import AboutUs from "./AboutUs";
 import ContactUs from "./ContactUs";
+import Playlistsongs from "./playlistsongs";
+import Weather from "./weather";
+import Search from "./searchpage";
 import "../../node_modules/jquery/dist/jquery.min.js";
 import "../../node_modules/bootstrap/js/src/collapse";
 import "../../node_modules/bootstrap/dist/css/bootstrap.css" ;
@@ -24,8 +27,11 @@ export default class App extends Component{
          <Route exact path="/" component={Home} />
          <Route  exact path="/AllArtist" component={AllArtist} />
          <Route exact path="/ArtistPlaylist/:id/:url/:name"  > <Playlist /> </Route>
+         <Route exact path="/playlistsongs/:id/:url/:name"  > <Playlistsongs /> </Route>
          <Route exact path="/AboutUs"> <AboutUs /></Route>
          <Route exact path="/ContactUs"> <ContactUs /></Route>
+         <Route exact path="/search" > <Search /></Route>
+         <Route exact path="/weather" > <Weather /></Route>
         </Switch>
         
 
