@@ -25,6 +25,7 @@ export default class App extends Component{
       <BrowserRouter>
          <Switch>
          <Route exact path="/" component={Home} />
+         <Route exact path="/home" component={Home} />
          <Route  exact path="/AllArtist" component={AllArtist} />
          <Route exact path="/ArtistPlaylist/:id/:url/:name"  > <Playlist /> </Route>
          <Route exact path="/playlistsongs/:id/:url/:name"  > <Playlistsongs /> </Route>
