@@ -58,3 +58,22 @@
 .change-color{
     color:white;
 }
+.range {
+    height: 8px;
+    -webkit-appearance: none;
+    background: rgba(17, 17, 17, 0.555);
+    outline: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.507);
+  }
+  .range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background:white;
+    cursor: pointer;
+    border: 4px solid #333;
+    box-shadow: -407px 0 0 400px white;
+  }

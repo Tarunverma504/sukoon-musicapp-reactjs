@@ -106,7 +106,7 @@ export default function AudioPlayer(props){
             <div className="outer-control change-color">
                 <div className="progressb ">
                         <span className="currentT" > {fmtMSS(currentTime)} </span>
-                        <input onChange={handleProgress} value={dur ? (currentTime * 100) / dur : 0} type="range" name="progresBar" id="prgbar" style={{width:'100%'}}  />
+                        <input className="range" onChange={handleProgress} value={dur ? (currentTime * 100) / dur : 0} type="range" name="progresBar" id="prgbar" style={{width:'100%'}}  />
                         <span className="totalT ">{fmtMSS(dur)}</span>
                         <br/>        
                 </div>
@@ -123,7 +123,7 @@ export default function AudioPlayer(props){
             
             <div className="vlme ">
                 <span className="volum change-color">{Math.round(statevolum*100)==0? <i className="fas fa-volume-mute"></i> :<i className="fas fa-volume-up"></i>} </span>
-                <input value={Math.round(statevolum*100)} type="range" name="volBar"  id="volBar" onChange={(e) => handleVolume(e.target.value /100)} />
+                <input className="range" value={Math.round(statevolum*100)} type="range" name="volBar"  id="volBar" onChange={(e) => handleVolume(e.target.value /100)} />
              </div>
             
         </div>
