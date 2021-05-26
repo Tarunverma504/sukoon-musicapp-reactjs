@@ -1,7 +1,10 @@
 import React from "react";
 import Player from "./Player";
+import {CircleArrow as ScrollUpButton} from "react-scroll-up-button"; //Add this line Here
+
 let arr=[];
 let songs=[];
+
 export default class List extends React.Component{
     constructor(props){
         super(props);
@@ -76,6 +79,8 @@ export default class List extends React.Component{
                     <tbody style={{color:"white"}}>
                         {this.renderList()}
                     </tbody>
+                    <ScrollUpButton />
+
                    {this.state.show==true?<Player index={this.state.index}  tracks={songs}/>:" "}
                 </>
         )

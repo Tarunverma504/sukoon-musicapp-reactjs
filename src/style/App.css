@@ -58,6 +58,29 @@ background: linear-gradient(to right, #021B79, #0575E6);
   overflow:hidden;
 }
  
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0575E6; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #021B79; 
+}
+
+
+
+
 @media screen and (max-width: 760px) {
   .resize{
     visibility: hidden;

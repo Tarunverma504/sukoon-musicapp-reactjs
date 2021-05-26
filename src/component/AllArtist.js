@@ -2,6 +2,8 @@ import React from 'react';
 import {get} from "../utils/api";
 import Artist from "./Artist";
 import Footer from "./footer";
+import {CircleArrow as ScrollUpButton} from "react-scroll-up-button"; //Add this line Here
+
 export default class AllArtist extends React.Component{
     constructor(){
         super();
@@ -15,6 +17,7 @@ export default class AllArtist extends React.Component{
         return(
             <>
                 <Artist number={20} align={"center"}/>
+                <ScrollUpButton />
                 <Footer />
             </>
         )

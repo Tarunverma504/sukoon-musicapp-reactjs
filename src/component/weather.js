@@ -87,8 +87,7 @@ export default class Search_page extends React.Component{
                 {this.state.weather!=" "?<h1 style={{textAlign:"center",color:"white"}}>Weather: {this.state.weather}</h1>:" "}
                  {this.state.playlist.length>0?
                     <div className=" container-fluid">
-                            <div className="container ">
-                                <h2 style={{color:'white',textAlign:"center"}}>Playlists</h2>   
+                            <div className="container ">  
                                 <div className="row row-cols-md-4 mt-4  text-align-center ">
                                  {this.state.playlist}   
                                 </div>

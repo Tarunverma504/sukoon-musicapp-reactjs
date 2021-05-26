@@ -6,6 +6,7 @@ import "../../node_modules/jquery/dist/jquery.min.js";
 import "../../node_modules/bootstrap/js/src/collapse";
 import "../../node_modules/bootstrap/dist/css/bootstrap.css" ;
 import png from "../images/home_page_artist.png";
+import {CircleArrow as ScrollUpButton} from "react-scroll-up-button"; //Add this line Here
 import { getParamValues} from "../utils/function";
 import Footer from "./footer";
 
@@ -88,6 +89,7 @@ export default class Home extends Component{
                  <Artist number={12} align={"left"}  />
                  <hr style={{backgroundColor:"grey",opacity:"0.5"}}/>
                  <Playlists number={10}  />
+                 <ScrollUpButton />
                  <Footer />
             </>
         )

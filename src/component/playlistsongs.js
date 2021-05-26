@@ -6,6 +6,8 @@ import "../../node_modules/bootstrap/js/src/collapse";
 import "../../node_modules/bootstrap/dist/css/bootstrap.css" ;
 import List from "./playlist_list";
 import "../style/Artist.css";
+import {CircleArrow as ScrollUpButton} from "react-scroll-up-button"; //Add this line Here
+
 import {get} from "../utils/api";
 const db = require('dotenv').config();
 let a=0;
@@ -71,6 +73,7 @@ export default class playlistsongs extends React.Component{
                                 </tr>
                             </thead>
                              <List tracks={tracks} artist={this.state.name} /> 
+                             <ScrollUpButton/>
                         </table>
                     </div>
                 </div>

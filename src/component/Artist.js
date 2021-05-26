@@ -50,6 +50,7 @@ export default class Artist extends React.Component{
                                 {this.state.arr}  
                                 </div>
                             </div>
+
                         </div>
                         
                     </>
